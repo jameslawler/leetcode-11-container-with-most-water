@@ -1,29 +1,20 @@
 const maxArea = (height) => {
   let largestArea = 0;
-  let largestHeight = 0;
+  let indexLeft = 0;
+  let indexRight = height.length - 1;
 
-  for (let i = 0; i < height.length; i++) {
-    const valueLeft = height[i];
+  while (indexLeft < indexRight) {
+    const valueLeft = height[indexLeft];
+    const valueRight = height[indexRight];
+    const distance = indexRight - indexLeft;
+    const currentArea = Math.min(valueLeft, valueRight) * distance;
 
-    if (valueLeft <= largestHeight) {
-      continue;
+    largestArea = Math.max(largestArea, currentArea);
+
+    if (valueLeft < valueRight) {
+      indexLeft++;
     } else {
-      largestHeight = valueLeft;
-    }
-
-    for (let j = height.length - 1; j > i; j--) {
-      const valueRight = height[j];
-      const minimumHeight = Math.min(valueLeft, valueRight);
-      const distance = j - i;
-      const area = minimumHeight * distance;
-
-      if (area > largestArea) {
-        largestArea = area;
-      }
-
-      if (valueRight >= valueLeft) {
-        break;
-      }
+      indexRight--;
     }
   }
 
