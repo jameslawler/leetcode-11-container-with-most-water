@@ -1,0 +1,11 @@
+{
+  "name": "leetcode-11-container-with-most-water",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
