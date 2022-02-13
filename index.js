@@ -5,7 +5,7 @@ const maxArea = (height) => {
   for (let i = 0; i < height.length; i++) {
     const valueLeft = height[i];
 
-    if (valueLeft < largestHeight) {
+    if (valueLeft <= largestHeight) {
       continue;
     } else {
       largestHeight = valueLeft;
@@ -21,7 +21,7 @@ const maxArea = (height) => {
         largestArea = area;
       }
 
-      if (valueRight > valueLeft) {
+      if (valueRight >= valueLeft) {
         break;
       }
     }
